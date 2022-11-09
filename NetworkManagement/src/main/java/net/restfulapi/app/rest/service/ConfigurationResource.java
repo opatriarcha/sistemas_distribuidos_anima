@@ -91,12 +91,15 @@ public class ConfigurationResource
     @Consumes("application/xml")
     public Response createConfiguration(Configuration config){
     	if(config.getContent() == null)  {
+            System.out.println("CONTENNT IS NULL");
     		return Response.status(javax.ws.rs.core.Response.Status.BAD_REQUEST)
     						.entity(new Message("Config content not found"))
     						.build();
+         
     	}
-
+        System.out.println("CONTENT S NOT NULL");
     	Integer id = ConfigurationDB.createConfiguration(config.getContent(), config.getStatus());
+        System.out.println("ID = " + id);
     	Link lnk = Link.fromUri(uriInfo.getPath() + "/" + id).rel("self").build();
     	return Response.status(javax.ws.rs.core.Response.Status.CREATED).location(lnk.getUri()).build();
     }
