@@ -30,6 +30,7 @@ public class MessengerIntegrationTest {
         try {
             Registry registry = LocateRegistry.getRegistry();
             MessengerService server = (MessengerService) registry.lookup("MessengerService");
+            
             String responseMessage = server.sendMessage("Client Message");
 
             String expectedMessage = "Server Message";

@@ -22,6 +22,7 @@ public class PersonGatewayServiceImpl implements PersonGatewayService {
 		registry.rebind("PersonGatewayService", stub);
 	}
 	
+        @Override
 	public Person retrievePerson(String thePerson) throws RemoteException {
                PersonHolder holder = new PersonHolder();
                return holder.retrievePerson(thePerson);

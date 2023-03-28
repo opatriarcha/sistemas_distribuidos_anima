@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.sd.rmi.methodInvocation;
 
 import java.rmi.NotBoundException;
@@ -28,8 +23,7 @@ public class PersonGatewayServiceIntegrationTest {
     @BeforeClass
     public static void init() {
         try {
-            personGateway = new PersonGatewayServiceImpl();
-            personGateway.createStubAndBind();
+            new PersonGatewayServiceImpl().createStubAndBind();
         } catch (RemoteException e) {
             fail("Exception Occurred: " + e);
         }
@@ -40,11 +34,12 @@ public class PersonGatewayServiceIntegrationTest {
         try {
             Registry registry = LocateRegistry.getRegistry();
             PersonGatewayService server = (PersonGatewayService) registry.lookup("PersonGatewayService");
-            String PERSON_KEY = "1";
+            final String PERSON_KEY = "1";
             
             PersonHolder holder = new PersonHolder();
             
             Person personRetrieved = server.retrievePerson(PERSON_KEY);
+            
             Person expected = holder.retrievePerson(PERSON_KEY);
 
             assertEquals(personRetrieved, expected);
