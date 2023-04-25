@@ -35,8 +35,7 @@ public class Server extends Thread{
 //            socketException.printStackTrace();
         } catch (IOException ex) {
             Logger.getLogger(Server.class.getName()).log(Level.SEVERE, "Problema ao receber Dados do cliente: " + ex.getMessage(), ex);
-        }
-                
+        }  
     }
     
     public static void main(String[] args) {

@@ -62,5 +62,4 @@ public class SimpleUDPSocketTest {
         new Client().connectAndSendMessage(HOST_OK, PORT_ERROR, MESSAGE_SAMPLE);
         assertTrue(false);
     }
-    
 }

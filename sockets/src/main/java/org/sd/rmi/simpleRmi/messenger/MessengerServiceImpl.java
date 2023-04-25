@@ -11,6 +11,9 @@ import java.rmi.server.UnicastRemoteObject;
  * @author orlando
  */
 public class MessengerServiceImpl implements MessengerService {
+    
+        private static final int PORT = 1099;
+        
 
 	public String sendMessage(String clientMessage) {
 		
@@ -25,8 +28,8 @@ public class MessengerServiceImpl implements MessengerService {
 	public void createStubAndBind() throws RemoteException {
 		
 		MessengerService stub = (MessengerService) UnicastRemoteObject.exportObject((MessengerService) this, 0);
-		Registry registry = LocateRegistry.createRegistry(1099);
-		registry.rebind("MessengerService", stub);
+		Registry registry = LocateRegistry.createRegistry(PORT);
+		registry.rebind(MESSENGER_SERVICE_NAME, stub);
 	}
 	
 	public Message sendMessage(Message clientMessage) throws RemoteException {
