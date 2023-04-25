@@ -23,7 +23,7 @@ public class SimpleServer {
     public void start(){
         try {
             ServerSocket server = new ServerSocket(this.port);
-            System.out.println("Servidor iniciado na porta 3322");
+            System.out.println("Servidor iniciado na porta: " + this.port);
 
             Socket cliente = server.accept();
             System.out.println("Cliente conectado do IP " + cliente.getInetAddress().getHostAddress());
@@ -39,6 +39,11 @@ public class SimpleServer {
         } catch (IOException ex) {
             Logger.getLogger(SimpleServer.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static void main(String[] args) {
+        SimpleServer server = new SimpleServer(3322);
+        server.start();
     }
     
 }
