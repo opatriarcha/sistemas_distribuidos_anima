@@ -17,13 +17,7 @@ public class MessengerIntegrationTest {
 
     @Before
     public void init() {
-        try {
-            messengerService = new MessengerServiceImpl();
-            messengerService.createStubAndBind();
-            
-        } catch (RemoteException e) {
-            fail("Exception Occurred: " + e);
-        }
+        
     }
 
 //    @Test
@@ -62,5 +56,4 @@ public class MessengerIntegrationTest {
             ex.printStackTrace();
         }
     }
-
 }
