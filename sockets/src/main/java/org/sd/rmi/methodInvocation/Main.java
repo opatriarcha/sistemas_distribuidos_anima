@@ -32,14 +32,11 @@ public class Main {
             PersonGatewayService server = (PersonGatewayService) registry.lookup("PersonGatewayService");
             final String PERSON_KEY = "1";
 
-            PersonHolder holder = new PersonHolder();
 
             Person result = server.retrievePerson(PERSON_KEY);
 
             System.out.println("Resultado da invocação:" + result);
-        } catch (RemoteException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NotBoundException ex) {
+        } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
