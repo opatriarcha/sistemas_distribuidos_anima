@@ -12,10 +12,10 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class PersonGatewayServiceImpl implements PersonGatewayService {
 	
+        @Override
 	public void createStubAndBind() throws RemoteException {
 		
-		PersonGatewayService stub = (PersonGatewayService) UnicastRemoteObject
-                        .exportObject((PersonGatewayService) this, 0);
+		PersonGatewayService stub = (PersonGatewayService) UnicastRemoteObject.exportObject((PersonGatewayService) this, 0);
 		Registry registry = LocateRegistry.createRegistry(1099);
 		registry.rebind("PersonGatewayService", stub);
 	}

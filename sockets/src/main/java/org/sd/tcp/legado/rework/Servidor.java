@@ -1,7 +1,6 @@
 package org.sd.tcp.legado.rework;
 
 
-import org.sd.tcp.legado.original.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -11,15 +10,15 @@ import java.net.Socket;
  */
 public class Servidor {
 
-    static ServerSocket serversocket;
-    static Socket client_socket;
-    static Conexao c;
-    static String msg;
+    ServerSocket serversocket;
+//    Socket client_socket;
+//    Conexao c;
+//    String msg;
 
     public Servidor() {
         try {
             //bind e criacao do socket do servidor
-            serversocket = new ServerSocket(9601);
+            serversocket = new ServerSocket(9600);
             System.out.println("Criado o Server Socket");
         } catch (Exception e) {
             System.err.println("Nao criei o Server Socket...");

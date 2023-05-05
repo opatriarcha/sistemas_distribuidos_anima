@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.sd.tcp.legado.rework;
 
 import java.net.Socket;
-import static org.sd.tcp.legado.rework.Servidor.c;
 
 /**
  *
@@ -14,7 +8,8 @@ import static org.sd.tcp.legado.rework.Servidor.c;
  */
 public class Executor {
     
-    Servidor servidor = new Servidor();
+    private Servidor servidor = new Servidor();
+    
     public static void main(String args[]) {
         String texto = "";
         String resposta = "Hello World!!!!";
@@ -26,7 +21,7 @@ public class Executor {
 
                 texto = c.receive(client);
                 System.out.println("Cliente enviou: " + texto.trim());      // fase de dados
-                c.send(client, resposta);
+                c.send(client, resposta +" -> "  +  texto);
 
                 try {
                     client.close();

@@ -25,13 +25,14 @@ public class Cliente {
     public static void main(String args[]) {
         String requisicao = "aham";
         String texto;
-        new Cliente();
-
-        c.send(socket, requisicao);
-        texto = c.receive(socket);      // fase de dados
-        System.out.println("Servidor enviou: " + texto.trim());
-
         try {
+            new Cliente();
+            c = new Conexao();
+            c.send(socket, requisicao);
+            texto = c.receive(socket);      // fase de dados
+            System.out.println("Servidor enviou: " + texto.trim());
+
+       
             socket.close();                 // fase de desconexao
         } catch (IOException e) {
             System.err.println("Nao encerrou a conexao corretamente" + e.getMessage());
